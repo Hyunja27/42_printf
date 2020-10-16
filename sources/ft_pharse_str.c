@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:33:17 by spark             #+#    #+#             */
-/*   Updated: 2020/10/16 22:05:55 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/16 23:14:13 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	ft_pharse_str(const char *str, Set	*set)
 		str++;
 	}
 	str = ft_width_detecter(str, set);
+	str++;
 	str = ft_precision_detecter(str, set);
 }
