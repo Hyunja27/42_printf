@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_width_detecter.c                                :+:      :+:    :+:   */
+/*   ft_pharse_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 17:48:16 by spark             #+#    #+#             */
-/*   Updated: 2020/10/16 21:39:19 by spark            ###   ########.fr       */
+/*   Created: 2020/10/16 21:33:17 by spark             #+#    #+#             */
+/*   Updated: 2020/10/16 22:05:55 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*ft_width_detecter(const char *str, Set *set)
+void	ft_pharse_str(const char *str, Set	*set)
 {
-	char	*ptr;
 	size_t	i;
-
+	
 	i = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-		i++;
-	ptr = ft_strndup(str, i);
-	set->width = ft_atoi(ptr);
-	return (&str[i]);
+	++str;
+	if (ft_strchr(str, '-'))
+		set->lefted = 1;
+	if (ft_strchr(str, '.'))
+		set->precision_yn = 1;
+	if (*str == '0')
+	{
+		set->zeroflag = 1;
+		str++;
+	}
+	else if (*str == ' ')
+	{
+		set->spaceflag = 1;
+		str++;
+	}
+	str = ft_width_detecter(str, set);
+	str = ft_precision_detecter(str, set);
 }

@@ -6,13 +6,13 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 23:24:19 by spark             #+#    #+#             */
-/*   Updated: 2020/10/09 22:03:37 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/16 21:01:40 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*ft_strndup(const char *str, size_t n)
+char	*ft_strndup(const char *str, size_t n)
 {
 	size_t	len;
 	char	*rt;

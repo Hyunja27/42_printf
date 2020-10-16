@@ -13,7 +13,7 @@ RM = rm
 RMFLAGS = -f
 AR = ar crs
 OBJS = $(addsuffix .o, $(SRC_FILES))
-SRC_FILES = ft_printf ft_print_int ft_width_detecter
+SRC_FILES = ft_printf ft_print_int ft_width_detecter ft_pharse_str ft_precision_detecter
 SRCS = $(addprefix ./sources/, $(addsuffix .c, $(SRC_FILES)))
 
 all : $(NAME)

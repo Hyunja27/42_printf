@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/16 18:29:07 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/16 21:45:47 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 int	main(void)
 {
-	char str[10000] = "%20.13d[END]";
+	char str[10000] = "% 50.13d[END]";
 
+	printf(" - test value is      %s\n\n", str);
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	printf("< Real printf >\n\n");
 	printf(str, 39);

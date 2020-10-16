@@ -6,33 +6,11 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/16 18:29:59 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/16 21:42:01 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	pharse_str(const char *str, Set	*set, va_list l)
-{
-	size_t	i;
-	
-	i = 0;
-	++str;
-	while (*str)
-	{
-		if (*str >= '1' && *str >= '9')
-		{
-			str = str + ft_width_detecter(str, set);
-		}
-		else if ((*str >= 32 && *str <= 126) && (*str != '%'))
-		{
-			write(1, str, sizeof(char));
-		}
-		str++;
-	}
-	printf("\n->width is %d",set->width);
-	va_end(l);
-}
 
 int		ft_printf(const char *str, ...)
 {
@@ -40,9 +18,10 @@ int		ft_printf(const char *str, ...)
 	Set		set;
 
 	set.int_num = 0;
-	set.char_num = 0;
+	set.precision_yn= 0;
 	set.double_num = 0;
-	set.flag = 0;
+	set.zeroflag = 0;
+	set.spaceflag = 0;
 	set.lefted = 0;
 	set.precision = 0;
 	set.val = 0;
@@ -55,8 +34,16 @@ int		ft_printf(const char *str, ...)
 	}
 	else
 	{
-		pharse_str(str, &set, l);
+		ft_pharse_str(str, &set);
 	}
+
+	printf("precision yn: %d\n", set.precision_yn);
+	printf("zero flags : %d\n", set.zeroflag);
+	printf("space flags : %d\n", set.spaceflag);
+	printf("lefted : %d\n", set.lefted);
+	printf("precision: %d\n", set.precision);
+	printf("width : %d\n", set.width);
+	
 	va_end(l);
 	return (0);
 }
