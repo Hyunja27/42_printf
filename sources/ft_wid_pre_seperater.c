@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wid_pre_seperater.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:33:39 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/17 12:42:46 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/17 16:25:50 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*ft_wid_pre_seperater(const char *str, Set *set)
+const char	*ft_wid_pre_seperater(const char *str, s_set *set)
 {
 	char *type_set;
 
@@ -35,5 +35,6 @@ const char	*ft_wid_pre_seperater(const char *str, Set *set)
 		else
 			str = ft_width_detecter(str, set);
 	}
+	set->type = *str;
 	return (str);
 }

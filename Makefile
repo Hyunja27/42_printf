@@ -13,7 +13,14 @@ RM = rm
 RMFLAGS = -f
 AR = ar crs
 OBJS = $(addsuffix .o, $(SRC_FILES))
-SRC_FILES = ft_printf ft_print_int ft_width_detecter ft_pharse_str ft_precision_detecter ft_wid_pre_seperater
+SRC_FILES = ft_printf \
+			ft_width_detecter \
+			ft_pharse_str \
+			ft_precision_detecter \
+			ft_wid_pre_seperater \
+			ft_printf_with_set \
+			ft_printf_int \
+			ft_set_clear
 SRCS = $(addprefix ./sources/, $(addsuffix .c, $(SRC_FILES)))
 
 GREEN = \033[32m
@@ -29,10 +36,10 @@ NO_COLOR = \e[0m
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@echo "${GREEN}[${RED} Makefile${GREEN} :starting.. ]"
+	@echo "${PURPLE}[${RED} Makefile${PURPLE} :starting.. ]"
 	@(make -C $(LIBFT_DIR))
-	@echo "${GREEN}->making libft.a , and add src.o.."
-	@echo "${GREEN}->resting.. drinking some coffee..."
+	@echo "${PURPLE}->making libft.a , and add src.o.."
+	@echo "${PURPLE}->resting.. drinking some coffee..."
 	@(cp $(LIBFT_DIR)/$(LIBFT) .)
 	@(mv $(LIBFT) $(NAME))
 	@($(AR) $(NAME) $(OBJS))
@@ -59,7 +66,7 @@ re : fclean all
 
 test : $(NAME)
 	@($(CC) $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) test.c  $(SRCS)  -I $(INC_DIR) -I $(LIBFT_INC_DIR))
-	@echo "${GREEN}${BOLD}${BLINK}<프린트f 테스트>"
+	@echo "${GREEN}${BOLD}${BLINK}\n<프린트f 테스트>\n"
 	@./a.out
 	@rm a.out
 	@make fclean

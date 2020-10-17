@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/17 09:29:32 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/17 18:13:15 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 
 int		ft_printf(const char *str, ...)
 {
-	va_list	l;
-	Set		set;
-
-	set.int_num = 0;
-	set.precision_yn = 0;
-	set.double_num = 0;
-	set.zeroflag = 0;
-	set.spaceflag = 0;
-	set.lefted = 0;
-	set.precision = 0;
-	set.val = 0;
-	set.width = 0;
+	va_list		l;
+	s_set		set;
+	
+	ft_set_clear(&set);
 	va_start(l, str);
-	if (*str != '%')
-		write(1, str, 1);
-	else
-		ft_pharse_str(str, &set);
-	printf("precision yn: %d\n", set.precision_yn);
+	while (*str)
+	{
+		if (*str != '%')
+			write(1, str, 1);
+		else if ((*str == '%') && *(str + 1) == '%')
+		{
+			write(1, str, 1);
+			str++;
+		}
+		else
+			str = ft_pharse_str(str, &set);
+		ft_printf_with_set(&set, l);
+		ft_set_clear(&set);
+		str++;
+	}
+	
+	printf("\n\nprecision yn: %d\n", set.precision_yn);
 	printf("zero flags : %d\n", set.zeroflag);
 	printf("space flags : %d\n", set.spaceflag);
 	printf("lefted : %d\n", set.lefted);

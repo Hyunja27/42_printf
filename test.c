@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/17 12:53:42 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/17 18:07:22 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 
 int	main(void)
 {
-	char str[10000] = "%-344.1453d[END]";
+	char str[10000] = "%.5d%%";
+	int num;
 
-	printf(" - test value is      %s\n\n", str);
+	num = 111;
+	printf(" - test value is '%s'\n\n                   %d\n\n", str,num);
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	printf("< Real printf >\n\n");
-	printf(str, 39);
+	printf(str, num);
 	printf("\n\n");
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	printf("< My ft_printf >\n\n");
-	ft_printf(str, 39);
+	ft_printf(str, num);
 	printf("\n\n");
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	return (0);
