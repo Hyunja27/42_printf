@@ -31,6 +31,8 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@echo "${GREEN}[${RED} Makefile${GREEN} :starting.. ]"
 	@(make -C $(LIBFT_DIR))
+	@echo "${GREEN}->making libft.a , and add src.o.."
+	@echo "${GREEN}->resting.. drinking some coffee..."
 	@(cp $(LIBFT_DIR)/$(LIBFT) .)
 	@(mv $(LIBFT) $(NAME))
 	@($(AR) $(NAME) $(OBJS))
@@ -42,10 +44,13 @@ $(OBJS) :
 clean :
 	@echo "${PURPLE}[${RED} cleaning ${PURPLE} : erase objects file.]"
 	@(make -C $(LIBFT_DIR) clean)
+	@echo "${PURPLE}->kill every objects, include libft objects.."
+	@echo "${PURPLE}->clearing dead bodys..."
 	@($(RM) $(RMFLAGS) $(OBJS))
 	@echo "${MINT}cleaning Done."
 fclean : clean
 	@echo "${PURPLE}[${RED} fcleaning ${PURPLE} : erase objects & lib.a file.]"
+	@echo "${PURPLE}->kill all lib.a files... bye bye!"
 	@($(RM) $(RMFLAGS) $(LIBFT_DIR)/$(LIBFT))
 	@($(RM) $(RMFLAGS) $(NAME))
 	@echo "${MINT}fcleaning Done."
