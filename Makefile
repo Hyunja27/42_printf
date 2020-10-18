@@ -68,7 +68,7 @@ fclean : clean
 re : fclean all
 
 test : $(NAME)
-	@($(CC) $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) test.c  $(SRCS)  -I $(INC_DIR) -I $(LIBFT_INC_DIR))
+	@($(CC) -g $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) test.c  $(SRCS)  -I $(INC_DIR) -I $(LIBFT_INC_DIR))
 	@echo "${GREEN}${BOLD}${BLINK}\n<프린트f 테스트>\n"
 	@./a.out
 	@rm a.out

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wid_pre_seperater.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:33:39 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/18 21:18:36 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 01:42:10 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	ft_wid_pre_seperater(t_set *set)
 			set->strs.str_to_pharse++;
 			ft_width_detecter(set);
 		}
+		else if ((*set->strs.str_to_pharse == '+' || \
+				*set->strs.str_to_pharse == ' ' || \
+				*set->strs.str_to_pharse == '-'))
+			set->strs.str_to_pharse++;
 		else
 			ft_width_detecter(set);
 	}

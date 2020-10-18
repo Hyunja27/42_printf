@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/18 22:23:38 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 01:07:53 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ int		ft_printf(const char *str, ...)
 	va_list		l;
 	t_set		set;
 	int			rt_byte;
-	
-	.
-	.
-	.
+
 	ft_set_clear(&set);
 	set.strs.str_to_pharse = str;
 	va_start(l, str);
@@ -46,7 +43,10 @@ int		ft_printf(const char *str, ...)
 	printf("lefted : %d\n", set.flags.lefted);
 	printf("precision: %d\n", set.lenths.precision);
 	printf("width : %d\n", set.lenths.width);
+	printf("type is : %c\n", set.type);
 	printf("return byte : %d\n", rt_byte);
+	printf("int that print is : %s\n", set.va_str);
+	printf("body str is : %s\n", set.strs.str_body);
 	ft_set_clear(&set);
 	va_end(l);
 	return (rt_byte);

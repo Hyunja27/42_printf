@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:02:40 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/18 22:31:07 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 01:00:05 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct	s_str
 {
-	char	*str_to_pharse;
+	const char	*str_to_pharse;
 	char	*str_flaged;
 	char	*str_body;
 	char	*str_to_print;
@@ -45,7 +45,7 @@ typedef struct	s_set
 	void		*val;
 	char		type;
 	int			num;
-	char		*va;
+	char		*va_str;
 	int			precision_yn;
 	t_str_set	strs;
 	t_flag_set	flags;
@@ -53,10 +53,10 @@ typedef struct	s_set
 }				t_set;
 
 int		ft_printf(const char *str, ...);
-const char	*ft_width_detecter(t_set *set);
-const char	*ft_precision_detecter(t_set *set);
+void	ft_width_detecter(t_set *set);
+void	ft_precision_detecter(t_set *set);
 void	ft_pharse_str(t_set *set);
-const char	*ft_wid_pre_seperater(t_set *set);
+void	ft_wid_pre_seperater(t_set *set);
 int		ft_printf_with_set(t_set *set, va_list l);
 int		ft_printf_int(t_set *set, va_list l);
 void	ft_flag_setter(t_set *set);

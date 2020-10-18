@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pharse_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:33:17 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 21:51:32 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 01:43:08 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,8 @@ void	ft_pharse_str(t_set *set)
 	if (ft_strchr(set->strs.str_to_pharse, '+'))
 		set->flags.plus_flag = 1;
 	if (*set->strs.str_to_pharse == '0')
-	{
 		set->flags.zeroflag = 1;
-		set->strs.str_to_pharse++;
-	}
 	else if (*set->strs.str_to_pharse == ' ')
-	{
 		set->flags.spaceflag = 1;
-		set->strs.str_to_pharse++;
-	}
-	set->strs.str_to_pharse = ft_wid_pre_seperater(set);
+	ft_wid_pre_seperater(set);
 }

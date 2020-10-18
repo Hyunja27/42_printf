@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_body_setter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 16:27:52 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 22:02:39 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 01:37:04 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	plus_adder(t_set *set)
+{
+	char	*tmp;
+
+	if ((set->flags.plus_flag == 1) && (set->flags.zeroflag == 1))
+		set->strs.str_flaged[0] = '+';
+	else if (set->flags.plus_flag == 1)
+	{
+		if (!(tmp = malloc(sizeof(char) * ft_strlen(set->strs.str_body) + 1)))
+			return ;
+		tmp[0] = '+';
+		ft_strlcpy(tmp + 1, set->strs.str_body, \
+		ft_strlen(set->strs.str_body) + 1);
+		set->strs.str_body = tmp;
+	}
+}
 
 void	ft_body_setter(t_set *set)
 {
@@ -19,20 +36,22 @@ void	ft_body_setter(t_set *set)
 
 	rt = NULL;
 	padding = set->lenths.total_len;
-	set->va = ft_itoa(set->num);
+	set->va_str = ft_itoa(set->num);
 	if ((set->precision_yn == 1) && \
 	(set->lenths.precision > ft_int_len(set->num)))
 	{
 		if (!(set->strs.str_body = \
 		malloc(sizeof(char) * (set->lenths.precision + 1))))
-			return (NULL);
-		set->strs.str_body = ft_memset_chr(rt, '0', set->lenths.precision + 1);
+			return ;
+		set->strs.str_body = ft_memset_chr(set->strs.str_body, '0'\
+		, set->lenths.precision + 1);
 		set->strs.str_body[set->lenths.precision] = 0;
 		padding = set->lenths.precision - ft_int_len(set->num);
 		ft_strlcpy(set->strs.str_body + padding, \
-		set->va, ft_int_len(set->num) + 1);
+		set->va_str, ft_int_len(set->num) + 1);
 	}
-	set->va = set->strs.str_flaged;
-	rt = set->va;
-	return (NULL);
+	else
+		set->strs.str_body = set->va_str;
+	plus_adder(set);
+	free(set->va_str);
 }
