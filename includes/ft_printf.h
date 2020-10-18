@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:02:40 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/18 17:41:24 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 22:31:07 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,51 @@
 # include <stdio.h>
 # include "libft.h"
 
-typedef struct	t_set
+typedef struct	s_str
 {
-	void	*val;
-	char	type;
-	int		num;
-	int		precision_yn;
-	int		double_num;
-	int		lefted;
-	int		zeroflag;
-	int		spaceflag;
-	int		width;
-	int		precision;
-	int		plus_flag;
+	char	*str_to_pharse;
+	char	*str_flaged;
+	char	*str_body;
+	char	*str_to_print;
+}				t_str_set;
+
+typedef struct	s_flag
+{
+	int			lefted;
+	int			zeroflag;
+	int			spaceflag;
+	int			plus_flag;
+}				t_flag_set;
+
+typedef struct	s_lenth
+{
+	int			width;
+	int			precision;
+	int			total_len;
+}				t_lenth_set;
+
+typedef struct	s_set
+{
+	void		*val;
+	char		type;
+	int			num;
+	char		*va;
+	int			precision_yn;
+	t_str_set	strs;
+	t_flag_set	flags;
+	t_lenth_set lenths;
 }				t_set;
 
 int		ft_printf(const char *str, ...);
-const char	*ft_width_detecter(const char *str, t_set *set);
-const char	*ft_precision_detecter(const char *str, t_set *set);
-const char	*ft_pharse_str(const char *str, t_set	*set);
-const char	*ft_wid_pre_seperater(const char *str, t_set *set);
+const char	*ft_width_detecter(t_set *set);
+const char	*ft_precision_detecter(t_set *set);
+void	ft_pharse_str(t_set *set);
+const char	*ft_wid_pre_seperater(t_set *set);
 int		ft_printf_with_set(t_set *set, va_list l);
 int		ft_printf_int(t_set *set, va_list l);
-void	ft_flag_setter(char *rt, t_set *set, int total_len);
-char	*ft_body_setter(char *flaged, t_set *set, int total_len);
-char	*ft_left_setter(char *flaged, char *body, t_set *set);
+void	ft_flag_setter(t_set *set);
+void	ft_body_setter(t_set *set);
+void	ft_left_setter(t_set *set);
 
 void	ft_set_clear(t_set *set);
 

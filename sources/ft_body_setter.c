@@ -6,33 +6,33 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 16:27:52 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 18:02:56 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 22:02:39 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_body_setter(char *flaged, t_set *set, int total_len)
+void	ft_body_setter(t_set *set)
 {
-	char	*body;
-	char	*num_str;
 	int		padding;
 	char	*rt;
 
-	body = NULL;
 	rt = NULL;
-	padding = total_len;
-	num_str = ft_itoa(set->num);
-	if ((set->precision_yn == 1) && (set->precision > ft_int_len(set->num)))
+	padding = set->lenths.total_len;
+	set->va = ft_itoa(set->num);
+	if ((set->precision_yn == 1) && \
+	(set->lenths.precision > ft_int_len(set->num)))
 	{
-		if (!(body = malloc(sizeof(char) * (set->precision + 1))))
+		if (!(set->strs.str_body = \
+		malloc(sizeof(char) * (set->lenths.precision + 1))))
 			return (NULL);
-		body = ft_memset_chr(rt, '0', set->precision + 1);
-		body[set->precision] = 0;
-		padding = set->precision - ft_int_len(set->num);
-		ft_strlcpy(body + padding, num_str, ft_int_len(set->num) + 1);
-		return (ft_left_setter(flaged, body, set));
+		set->strs.str_body = ft_memset_chr(rt, '0', set->lenths.precision + 1);
+		set->strs.str_body[set->lenths.precision] = 0;
+		padding = set->lenths.precision - ft_int_len(set->num);
+		ft_strlcpy(set->strs.str_body + padding, \
+		set->va, ft_int_len(set->num) + 1);
 	}
-	rt = num_str;
-	return (ft_left_setter(flaged, rt, set));
+	set->va = set->strs.str_flaged;
+	rt = set->va;
+	return (NULL);
 }

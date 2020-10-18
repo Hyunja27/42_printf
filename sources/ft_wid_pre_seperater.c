@@ -6,35 +6,37 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:33:39 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/18 16:43:43 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 21:18:36 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*ft_wid_pre_seperater(const char *str, t_set *set)
+void	ft_wid_pre_seperater(t_set *set)
 {
 	char *type_set;
 
 	type_set = ft_strdup("diuoxXfFeEgGaAcspn");
-	while (!ft_strchr(type_set, *str))
+	while (!ft_strchr(type_set, *set->strs.str_to_pharse))
 	{
-		if (*str == '.' && (*(str + 1) >= '1' && *(str + 1) <= '9'))
+		if (*set->strs.str_to_pharse == '.' && \
+		(*(set->strs.str_to_pharse + 1) >= '1' && \
+		*(set->strs.str_to_pharse + 1) <= '9'))
 		{
-			str++;
-			str = ft_precision_detecter(str, set);
+			set->strs.str_to_pharse++;
+			ft_precision_detecter(set);
 		}
-		else if ((*str == '+' || \
-				*str == ' ' || \
-				*str == '-') \
-		&& (*(str + 1) >= '1' && *(str + 1) <= '9'))
+		else if ((*set->strs.str_to_pharse == '+' || \
+				*set->strs.str_to_pharse == ' ' || \
+				*set->strs.str_to_pharse == '-') \
+		&& (*(set->strs.str_to_pharse + 1) >= '1' && \
+			*(set->strs.str_to_pharse + 1) <= '9'))
 		{
-			str++;
-			str = ft_width_detecter(str, set);
+			set->strs.str_to_pharse++;
+			ft_width_detecter(set);
 		}
 		else
-			str = ft_width_detecter(str, set);
+			ft_width_detecter(set);
 	}
-	set->type = *str;
-	return (str);
+	set->type = *set->strs.str_to_pharse;
 }

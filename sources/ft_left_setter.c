@@ -6,20 +6,29 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 18:00:16 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 22:04:12 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_left_setter(char *flaged, char *body, t_set *set)
+void	ft_left_setter(t_set *set)
 {
 	int	padding;
 
 	padding = 0;
-	if ((set->lefted == 0) && (ft_strlen(flaged) > ft_strlen(body)))
+	if ((set->flags.lefted == 0) && (ft_strlen(set->strs.str_flaged) \
+		> ft_strlen(set->strs.str_body)))
 	{
-		return (body);
+		padding = ft_strlen(set->strs.str_flaged) \
+		- ft_strlen(set->strs.str_body);
+		ft_strlcpy(set->strs.str_flaged + padding, set->strs.str_body,\
+		ft_strlen(set->strs.str_body) + 1);
 	}
-	return (body);
+	if ((set->flags.lefted == 1) && (ft_strlen(set->strs.str_flaged) \
+		> ft_strlen(set->strs.str_body)))
+	{
+		ft_strlcpy(set->strs.str_flaged, set->strs.str_body,\
+		ft_strlen(set->strs.str_body) + 1);
+	}
 }

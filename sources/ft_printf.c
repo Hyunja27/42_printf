@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/18 16:43:35 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 22:23:38 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,36 @@ int		ft_printf(const char *str, ...)
 {
 	va_list		l;
 	t_set		set;
-	int		rt_byte;
-
+	int			rt_byte;
+	
+	.
+	.
+	.
 	ft_set_clear(&set);
+	set.strs.str_to_pharse = str;
 	va_start(l, str);
 	rt_byte = 0;
-	while (*str)
+	while (*set.strs.str_to_pharse)
 	{
-		if (*str != '%')
-			rt_byte += write(1, str, 1);
-		else if ((*str == '%') && *(str + 1) == '%')
+		if (*set.strs.str_to_pharse != '%')
+			rt_byte += write(1, set.strs.str_to_pharse, 1);
+		else if ((*set.strs.str_to_pharse == '%') && \
+				*(set.strs.str_to_pharse + 1) == '%')
 		{
-			rt_byte += write(1, str, 1);
-			str++;
+			rt_byte += write(1, set.strs.str_to_pharse, 1);
+			set.strs.str_to_pharse++;
 		}
 		else
-			str = ft_pharse_str(str, &set);
+			ft_pharse_str(&set);
 		rt_byte += ft_printf_with_set(&set, l);
-		str++;
+		set.strs.str_to_pharse++;
 	}
 	printf("\n\nprecision yn: %d\n", set.precision_yn);
-	printf("zero flags : %d\n", set.zeroflag);
-	printf("space flags : %d\n", set.spaceflag);
-	printf("lefted : %d\n", set.lefted);
-	printf("precision: %d\n", set.precision);
-	printf("width : %d\n", set.width);
+	printf("zero flags : %d\n", set.flags.zeroflag);
+	printf("space flags : %d\n", set.flags.spaceflag);
+	printf("lefted : %d\n", set.flags.lefted);
+	printf("precision: %d\n", set.lenths.precision);
+	printf("width : %d\n", set.lenths.width);
 	printf("return byte : %d\n", rt_byte);
 	ft_set_clear(&set);
 	va_end(l);

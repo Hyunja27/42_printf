@@ -6,34 +6,33 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:33:17 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 16:43:19 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 21:51:32 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*ft_pharse_str(const char *str, t_set *set)
+void	ft_pharse_str(t_set *set)
 {
 	size_t	i;
 
 	i = 0;
-	++str;
-	if (ft_strchr(str, '-'))
-		set->lefted = 1;
-	if (ft_strchr(str, '.'))
+	++(set->strs.str_to_pharse);
+	if (ft_strchr(set->strs.str_to_pharse, '-'))
+		set->flags.lefted = 1;
+	if (ft_strchr(set->strs.str_to_pharse, '.'))
 		set->precision_yn = 1;
-	if (ft_strchr(str, '+'))
-		set->plus_flag = 1;
-	if (*str == '0')
+	if (ft_strchr(set->strs.str_to_pharse, '+'))
+		set->flags.plus_flag = 1;
+	if (*set->strs.str_to_pharse == '0')
 	{
-		set->zeroflag = 1;
-		str++;
+		set->flags.zeroflag = 1;
+		set->strs.str_to_pharse++;
 	}
-	else if (*str == ' ')
+	else if (*set->strs.str_to_pharse == ' ')
 	{
-		set->spaceflag = 1;
-		str++;
+		set->flags.spaceflag = 1;
+		set->strs.str_to_pharse++;
 	}
-	str = ft_wid_pre_seperater(str, set);
-	return (str);
+	set->strs.str_to_pharse = ft_wid_pre_seperater(set);
 }
