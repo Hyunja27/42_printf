@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/17 18:07:22 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 17:28:05 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 int	main(void)
 {
-	char str[10000] = "%.5d%%";
-	int num;
+	char	str[10000] = "%10.15d";
+	int		num;
 
-	num = 111;
-	printf(" - test value is '%s'\n\n                   %d\n\n", str,num);
+	num = 1672;
+	printf(" - test value is '%s'\n\n           va is '%d'\n\n", str,num);
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	printf("< Real printf >\n\n");
 	printf(str, num);

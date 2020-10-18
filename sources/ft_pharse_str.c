@@ -6,13 +6,13 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:33:17 by spark             #+#    #+#             */
-/*   Updated: 2020/10/17 16:25:24 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/18 16:43:19 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*ft_pharse_str(const char *str, s_set *set)
+const char	*ft_pharse_str(const char *str, t_set *set)
 {
 	size_t	i;
 

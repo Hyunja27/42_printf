@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_with_set.c                               :+:      :+:    :+:   */
+/*   ft_left_setter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 14:47:57 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 16:43:29 by spark            ###   ########.fr       */
+/*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
+/*   Updated: 2020/10/18 18:00:16 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf_with_set(t_set *set, va_list l)
+char	*ft_left_setter(char *flaged, char *body, t_set *set)
 {
-	int rt_byte;
+	int	padding;
 
-	rt_byte = 0;
-	if (set->type == 'd' || set->type == 'i' || set->type == 'u')
-		rt_byte += ft_printf_int(set, l);
-	return (rt_byte);
+	padding = 0;
+	if ((set->lefted == 0) && (ft_strlen(flaged) > ft_strlen(body)))
+	{
+		return (body);
+	}
+	return (body);
 }

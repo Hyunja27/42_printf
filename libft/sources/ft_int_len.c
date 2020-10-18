@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_with_set.c                               :+:      :+:    :+:   */
+/*   ft_int_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 14:47:57 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 16:43:29 by spark            ###   ########.fr       */
+/*   Created: 2020/10/18 16:45:30 by spark             #+#    #+#             */
+/*   Updated: 2020/10/18 16:48:48 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf_with_set(t_set *set, va_list l)
+int	ft_int_len(int n)
 {
-	int rt_byte;
-
-	rt_byte = 0;
-	if (set->type == 'd' || set->type == 'i' || set->type == 'u')
-		rt_byte += ft_printf_int(set, l);
-	return (rt_byte);
+	return (n == 0 ? 0 : 1 + ft_int_len(n / 10));
 }
