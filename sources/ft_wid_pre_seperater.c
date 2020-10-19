@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:33:39 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/19 19:09:51 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 22:35:47 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_wid_pre_seperater(t_set *set)
 	while (!ft_strchr(type_set, *set->strs.str_to_pharse))
 	{
 		if (*set->strs.str_to_pharse == '.' && \
-		(*(set->strs.str_to_pharse + 1) >= '1' && \
-		*(set->strs.str_to_pharse + 1) <= '9'))
+		((*(set->strs.str_to_pharse + 1) >= '1' && \
+		*(set->strs.str_to_pharse + 1) <= '9') || *(set->strs.str_to_pharse + 1) == '*'))
 		{
 			set->strs.str_to_pharse++;
 			ft_precision_detecter(set);

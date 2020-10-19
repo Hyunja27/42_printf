@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_width_detecter.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 17:48:16 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 01:03:20 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/19 22:38:37 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,19 @@ void	ft_width_detecter(t_set *set)
 	size_t	i;
 
 	i = 0;
-	while (set->strs.str_to_pharse[i] >= '0' && \
+	if (set->strs.str_to_pharse[i] == '*')
+	{
+		set->lenths.width = va_arg(*set->list, int);
+		set->strs.str_to_pharse = set->strs.str_to_pharse + 1;
+	}
+	else
+	{
+		while (set->strs.str_to_pharse[i] >= '0' && \
 			set->strs.str_to_pharse[i] <= '9')
 		i++;
-	ptr = ft_strndup(set->strs.str_to_pharse, i);
-	set->lenths.width = ft_atoi(ptr);
-	set->strs.str_to_pharse = set->strs.str_to_pharse + i;
+		ptr = ft_strndup(set->strs.str_to_pharse, i);
+		set->lenths.width = ft_atoi(ptr);
+		set->strs.str_to_pharse = set->strs.str_to_pharse + i;
+		free(ptr);
+	}
 }

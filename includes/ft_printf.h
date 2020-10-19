@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:02:40 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/19 20:39:15 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 22:08:31 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_set
 	char		*va_str;
 	int			precision_yn;
 	int			rt_byte;
+	va_list		*list;
 	t_str_set	strs;
 	t_flag_set	flags;
 	t_lenth_set lenths;
