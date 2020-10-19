@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:02:40 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/19 17:31:21 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/19 19:55:00 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ void	ft_wid_pre_seperater(t_set *set);
 void	ft_printf_with_set(t_set *set, va_list l);
 void	ft_printf_int(t_set *set, va_list l);
 void	ft_flag_setter(t_set *set);
-void	ft_body_setter(t_set *set);
+void	ft_body_setter_int (t_set *set);
+void	ft_body_setter_str(t_set *set);
 void	ft_left_setter(t_set *set);
+void	ft_printf_str(t_set *set, va_list l);
 
 void	ft_set_clear(t_set *set);
 

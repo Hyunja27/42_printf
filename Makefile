@@ -20,9 +20,11 @@ SRC_FILES = ft_printf \
 			ft_wid_pre_seperater \
 			ft_printf_with_set \
 			ft_printf_int \
+			ft_printf_str \
 			ft_set_clear \
 			ft_flag_setter \
-			ft_body_setter \
+			ft_body_setter_int \
+			ft_body_setter_str \
 			ft_left_setter
 SRCS = $(addprefix ./sources/, $(addsuffix .c, $(SRC_FILES)))
 

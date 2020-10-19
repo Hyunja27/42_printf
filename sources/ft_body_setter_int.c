@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_body_setter.c                                   :+:      :+:    :+:   */
+/*   ft_body_setter_int.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/18 16:27:52 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 15:50:31 by hyunja           ###   ########.fr       */
+/*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
+/*   Updated: 2020/10/19 19:00:13 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	plus_adder(t_set *set)
 
 	if ((set->flags.plus_flag == 1) && (set->flags.zeroflag == 1))
 		set->strs.str_flaged[0] = '+';
-	else if (set->flags.plus_flag == 1)
+	else if ((set->flags.plus_flag == 1) && (set->num > 0))
 	{
 		if (!(tmp = malloc(sizeof(char) * ft_strlen(set->strs.str_body) + 1)))
 			return ;
@@ -76,7 +76,7 @@ static void	plus_adder(t_set *set)
 	}
 }
 
-void	ft_body_setter(t_set *set)
+void	ft_body_setter_int(t_set *set)
 {
 	int		padding;
 

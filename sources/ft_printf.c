@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/19 17:40:09 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/19 19:14:28 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		ft_printf(const char *str, ...)
 	{
 		if ((*set.strs.str_to_pharse != '%'))
 			set.rt_byte += write(1, set.strs.str_to_pharse, 1);
-		else if ((*set.strs.str_to_pharse == '%') && \
-		*(set.strs.str_to_pharse + 1) == '%')
+		else if (*(set.strs.str_to_pharse + 1) && \
+		((*set.strs.str_to_pharse == '%') && *(set.strs.str_to_pharse + 1) == '%'))
 		{
 			set.rt_byte += write(1, set.strs.str_to_pharse, 1);
 			set.strs.str_to_pharse++;
@@ -37,7 +37,7 @@ int		ft_printf(const char *str, ...)
 			ft_printf_with_set(&set, l);
 		}
 		set.strs.str_to_pharse++;
-		ft_set_clear(&set);
+		//ft_set_clear(&set);
 	}
 	printf("\n\n>precision yn: %d\n", set.precision_yn);
 	printf(">zero flags : %d\n", set.flags.zeroflag);
