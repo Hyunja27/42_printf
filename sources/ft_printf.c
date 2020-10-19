@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/19 22:33:58 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 22:40:51 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_printf(const char *str, ...)
 			ft_printf_with_set(&set, l);
 		}
 		set.strs.str_to_pharse++;
-		//ft_set_clear(&set);
+		ft_set_clear(&set);
 	}
 	printf("\n\n>precision yn: %d\n", set.precision_yn);
 	printf(">zero flags : %d\n", set.flags.zeroflag);
