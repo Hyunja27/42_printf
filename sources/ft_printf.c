@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/19 20:20:35 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 21:46:40 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int		ft_printf(const char *str, ...)
 	printf(">return byte : %d\n", set.rt_byte);
 	printf(">int that print is : %s\n", set.va_str);
 	printf(">body str is : %s\n", set.strs.str_body);
-	set.rt_byte--;
 	va_end(l);
 	return (set.rt_byte);
 }

@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 20:29:27 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 21:48:32 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ static void	plus_adder(t_set *set)
 	char	*tmp;
 
 	if ((set->flags.plus_flag == 1) && (set->flags.zeroflag == 1))
-	{
 		set->strs.str_flaged[0] = '+';
-		set->rt_byte++;
-	}
+
 	else if ((set->flags.plus_flag == 1) && (set->num >= 0))
 	{
 		if (!(tmp = malloc(sizeof(char) * ft_strlen(set->strs.str_body) + 1)))
@@ -76,7 +74,6 @@ static void	plus_adder(t_set *set)
 		ft_strlcpy(tmp + 1, set->strs.str_body, \
 		ft_strlen(set->strs.str_body) + 1);
 		set->strs.str_body = tmp;
-		set->rt_byte++;
 	}
 }
 
@@ -96,8 +93,7 @@ void	ft_body_setter_int(t_set *set)
 		, set->lenths.precision + 1);
 		set->strs.str_body[set->lenths.precision] = 0;
 		padding = set->lenths.precision - ft_int_len(set->num);
-		ft_strlcpy(set->strs.str_body + padding, \
-		set->va_str, ft_int_len(set->num) + 1);
+		ft_memmove(set->strs.str_body + padding, set->va_str, ft_int_len(set->num) + 1);
 	}
 	else if ((set->num < 0))
 		ft_body_setter_pres_minus(set);

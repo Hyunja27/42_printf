@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 17:15:56 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 20:30:08 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 21:49:10 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,10 @@ void		ft_printf_int(t_set *set, va_list l)
 	set->lenths.total_len = \
 	(set->lenths.total_len > set->lenths.precision) ? \
 	set->lenths.total_len : set->lenths.precision;
-	set->rt_byte += set->lenths.total_len;
 	if (!(set->strs.str_flaged = malloc(sizeof(char) * \
 		(set->lenths.total_len + 1))))
 		return ;
-	set->rt_byte++;
 	ft_flag_setter(set);
 	ft_body_setter_int(set);
 	ft_left_setter(set);
-	if (set->precision_yn == 1)
-		set->rt_byte++;
 }
