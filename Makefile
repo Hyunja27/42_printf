@@ -21,6 +21,7 @@ SRC_FILES = ft_printf \
 			ft_printf_with_set \
 			ft_printf_int \
 			ft_printf_str \
+			ft_printf_char \
 			ft_set_clear \
 			ft_flag_setter \
 			ft_body_setter_int \

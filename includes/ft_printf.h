@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:02:40 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/19 19:55:00 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 20:39:15 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct	s_set
 	void		*val;
 	char		type;
 	int			num;
+	char		chr;
 	char		*va_str;
 	int			precision_yn;
 	int			rt_byte;
@@ -65,6 +66,7 @@ void	ft_body_setter_int (t_set *set);
 void	ft_body_setter_str(t_set *set);
 void	ft_left_setter(t_set *set);
 void	ft_printf_str(t_set *set, va_list l);
+void	ft_printf_char(t_set *set, va_list l);
 
 void	ft_set_clear(t_set *set);
 

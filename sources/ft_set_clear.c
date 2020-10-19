@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_clear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 17:41:03 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 17:33:06 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/19 20:35:25 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_set_clear(t_set *set)
 	set->type = 0;
 	set->va_str = 0;
 	set->num = 0;
+	set->chr = 0;
 	set->precision_yn = 0;
 	set->strs.str_body = 0;
 	set->strs.str_flaged = 0;

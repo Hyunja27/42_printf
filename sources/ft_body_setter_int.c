@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 19:00:13 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 20:29:27 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ static void	plus_adder(t_set *set)
 	char	*tmp;
 
 	if ((set->flags.plus_flag == 1) && (set->flags.zeroflag == 1))
+	{
 		set->strs.str_flaged[0] = '+';
-	else if ((set->flags.plus_flag == 1) && (set->num > 0))
+		set->rt_byte++;
+	}
+	else if ((set->flags.plus_flag == 1) && (set->num >= 0))
 	{
 		if (!(tmp = malloc(sizeof(char) * ft_strlen(set->strs.str_body) + 1)))
 			return ;
@@ -73,6 +76,7 @@ static void	plus_adder(t_set *set)
 		ft_strlcpy(tmp + 1, set->strs.str_body, \
 		ft_strlen(set->strs.str_body) + 1);
 		set->strs.str_body = tmp;
+		set->rt_byte++;
 	}
 }
 

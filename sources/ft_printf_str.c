@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:33:45 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 19:46:46 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 20:46:52 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void		ft_printf_str(t_set *set, va_list l)
 	//int i = 0;
 	//while(set->strs.str_flaged[i])
 		//printf("[%c]",set->strs.str_flaged[i++]);
+		
 	ft_putstr_fd(set->strs.str_flaged, 1);
-	if (set->precision_yn == 1)
-		set->rt_byte++;
 }
