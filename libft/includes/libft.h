@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:32:23 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/18 16:47:00 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/19 10:25:23 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char			*ft_strndup(const char *str, size_t n);
 char			*ft_strchrs(const char *str, char *to_find);
 void			*ft_memset_chr(char *p, char c, int n);
 int				ft_int_len(int n);
+char			*ft_itoa_no_minus(int n);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);

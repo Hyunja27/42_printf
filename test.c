@@ -6,7 +6,7 @@
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 01:43:38 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/19 10:48:27 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,24 @@
 
 int	main(void)
 {
-	char	str[10000] = "%+010.4d";
-	int		num;
+	char	str[10000] = "% 20.4d%010.4d";
+	int		num1;
+	int		num2;
+	int		num3;
+	int		rt_byte;
 
-	num = 1672;
-	printf(" - test value is '%s'\n\n           va is '%d'\n\n", str,num);
+	num1 = -10;
+	num2 = 30;
+	num3 = 0;
+	printf(" - test value is '%s'\n\n           va is '%d'\n\n", str,num1);
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	printf("< Real printf >\n\n");
-	printf(str, num);
+	rt_byte = printf(str, num1);
+	printf("\nreal printf's return byte : %d\n", rt_byte);
 	printf("\n\n");
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	printf("< My ft_printf >\n\n");
-	ft_printf(str, num);
+	ft_printf(str, num1);
 	printf("\n\n");
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	return (0);

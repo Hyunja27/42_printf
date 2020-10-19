@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_set_clear.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_no_minus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 17:41:03 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 10:44:52 by hyunja           ###   ########.fr       */
+/*   Created: 2020/10/01 23:34:40 by spark             #+#    #+#             */
+/*   Updated: 2020/10/19 10:40:20 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_set_clear(t_set *set)
+static int	ilencal(int n)
 {
-	set->val = 0;
-	set->type = 0;
-	set->va_str = 0;
-	set->num = 0;
-	set->precision_yn = 0;
-	set->strs.str_body = 0;
-	set->strs.str_flaged = 0;
-	set->strs.str_to_print = 0;
-	set->flags.lefted = 0;
-	set->flags.plus_flag = 0;
-	set->flags.spaceflag = 0;
-	set->flags.zeroflag = 0;
-	set->lenths.precision = 0;
-	set->lenths.total_len = 0;
-	set->lenths.width = 0;
+	return (n == 0 ? 0 : 1 + ilencal(n / 10));
+}
+
+char		*ft_itoa_no_minus(int n)
+{
+	int				len;
+	char			*rt;
+	unsigned int	tmp;
+
+	len = ilencal(n / 10) + 1;
+	if (n < 0)
+		tmp = -n;
+	else
+		tmp = n;
+	if (!(rt = malloc(len + 1)))
+		return (0);
+	rt[len] = 0;
+	rt[--len] = '0' + (tmp % 10);
+	while (tmp /= 10)
+		rt[--len] = '0' + (tmp % 10);
+	return (rt);
 }
