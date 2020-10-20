@@ -6,13 +6,13 @@
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/15 06:08:16 by spark             #+#    #+#             */
-/*   Updated: 2020/10/20 17:10:03 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/20 21:00:10 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nbr_divide(long long nbr, int base_len)
+static int		nbr_divide(long long nbr, int base_len)
 {
 	int cnt;
 
@@ -29,7 +29,7 @@ int		nbr_divide(long long nbr, int base_len)
 	return (cnt);
 }
 
-int		str_check(char *str, int *len)
+static int		str_check(char *str, int *len)
 {
 	int		idx;
 	int		checker[256];
@@ -54,15 +54,7 @@ int		str_check(char *str, int *len)
 	return (1);
 }
 
-int		is_space(char c)
-{
-	if (c == ' ' || ('\t' <= c && '\r' >= c))
-		return (1);
-	else
-		return (0);
-}
-
-int		atoi_base_from(char *str, char *base, int base_len)
+static int		atoi_base_from(char *str, char *base, int base_len)
 {
 	int ret;
 	int indic;
@@ -91,7 +83,7 @@ int		atoi_base_from(char *str, char *base, int base_len)
 	return (ret);
 }
 
-char	*convert_to(int nbr, char *base, int base_len)
+static char		*convert_to(int nbr, char *base, int base_len)
 {
 	long long	tmp;
 	char		*ret;
@@ -107,10 +99,9 @@ char	*convert_to(int nbr, char *base, int base_len)
 	tmp = nbr;
 	size = nbr_divide(tmp, base_len);
 	if (!(ret = (char*)malloc(size + 1)))
-		return ;
+		return (0);
 	ret[size] = 0;
-	if (tmp < 0)
-		tmp = tmp * -1;
+	tmp = (tmp < 0) ? (tmp * -1) : tmp;
 	while (tmp)
 	{
 		ret[--size] = base[tmp % base_len];
@@ -121,7 +112,7 @@ char	*convert_to(int nbr, char *base, int base_len)
 	return (ret);
 }
 
-char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+char			*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int		tmp;
 	int		from_len;

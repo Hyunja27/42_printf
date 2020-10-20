@@ -6,7 +6,7 @@
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:32:23 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/20 10:23:48 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/20 21:07:59 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void			*ft_memset_chr(char *p, char c, int n);
 long long		ft_int_len(long long n);
 char			*ft_itoa_no_minus(int n);
 char			*ft_ltoa(long long n);
+int				is_space(char c);
+char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);

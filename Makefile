@@ -26,7 +26,9 @@ SRC_FILES = ft_printf \
 			ft_flag_setter \
 			ft_body_setter_int \
 			ft_body_setter_str \
-			ft_left_setter
+			ft_body_setter_hex \
+			ft_left_setter \
+			ft_printf_hex
 SRCS = $(addprefix ./sources/, $(addsuffix .c, $(SRC_FILES)))
 
 GREEN = \033[32m
