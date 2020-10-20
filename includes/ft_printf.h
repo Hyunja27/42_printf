@@ -6,7 +6,7 @@
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:02:40 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/20 22:08:17 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/21 00:35:35 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	ft_left_setter(t_set *set);
 void	ft_printf_str(t_set *set, va_list l);
 void	ft_printf_char(t_set *set, va_list l);
 void	ft_printf_hex(t_set *set, va_list l);
+void	ft_printf_ptr(t_set *set, va_list l);
 
 void	ft_set_clear(t_set *set);
 
