@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_ltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/04 09:35:34 by spark             #+#    #+#             */
-/*   Updated: 2020/10/20 00:54:47 by hyunja           ###   ########.fr       */
+/*   Created: 2020/10/20 10:22:41 by hyunja            #+#    #+#             */
+/*   Updated: 2020/10/20 10:23:25 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-void	inttochar_fd(int n, int fd)
+static long long	ilencal(long long n)
 {
-	char rt;
-
-	if (n / 10)
-		inttochar_fd(n / 10, fd);
-	rt = '0' + (n % 10);
-	write(fd, &rt, 1);
+	return (n == 0 ? 0 : 1 + ilencal(n / 10));
 }
 
-void	ft_putnbr_fd(int n, int fd)
+char		*ft_ltoa(long long n)
 {
-	if (n == -2147483648)
-		write(fd, "-2147483648", 11);
-	else
+	int				len;
+	char			*rt;
+	long long		tmp;
+
+	len = ilencal(n / 10) + 1;
+	if (n < 0)
 	{
-		if (n < 0)
-		{
-			write(fd, "-", 1);
-			n = -n;
-		}
-		inttochar_fd(n, fd);
+		++len;
+		tmp = -n;
 	}
+	else
+		tmp = n;
+	if (!(rt = malloc(len + 1)))
+		return (0);
+	rt[len] = 0;
+	if (n < 0)
+		rt[0] = '-';
+	rt[--len] = '0' + (tmp % 10);
+	while (tmp /= 10)
+		rt[--len] = '0' + (tmp % 10);
+	return (rt);
 }

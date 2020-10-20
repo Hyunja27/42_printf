@@ -75,6 +75,7 @@ test : $(NAME)
 	@echo "${GREEN}${BOLD}${BLINK}\n<프린트f 테스트>\n"
 	@./a.out
 	@rm a.out
+	@rm -rf a.out.dSYM
 	@make fclean
 
 .PHONY: clean fclean

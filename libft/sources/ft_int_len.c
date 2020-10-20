@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_int_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 16:45:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/18 16:48:48 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/20 10:18:40 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_int_len(int n)
+long long	ft_int_len(long long n)
 {
 	return (n == 0 ? 0 : 1 + ft_int_len(n / 10));
 }

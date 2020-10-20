@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 17:15:56 by spark             #+#    #+#             */
-/*   Updated: 2020/10/19 21:49:10 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/20 10:39:46 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void		ft_printf_int(t_set *set, va_list l)
 {
 	int		num_len;
 
-	set->num = va_arg(l, int);
+	if ((set->type == 'd') || (set->type == 'i'))
+		set->num = va_arg(l, int);
+	else if (set->type == 'u')
+		set->num = va_arg(l, unsigned int);
 	num_len = ft_int_len(set->num);
 	set->lenths.total_len = \
 	(num_len > set->lenths.width) ? num_len : set->lenths.width;
