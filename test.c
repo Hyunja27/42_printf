@@ -6,7 +6,7 @@
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/20 21:47:48 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/20 22:53:22 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 {
 	//"%010s%c%-0+5dhello\n";
 	//"%.15u%%%.*d ALL\n"
-	char			str[10000] = "%*.*x";
+	char			str[10000] = "%*.*X";
 	//char			*str1;
 	//unsigned int	num1;
 	//long long 			num2;
