@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 11:21:42 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 13:27:19 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static void	ft_body_setter_hex_wid_setter(t_set *set, int body_str_len)
 	if ((padding > body_str_len) && (set->flags.lefted == 0))
 	{
 		padding = padding - body_str_len;
-		ft_strlcpy(set->strs.str_flaged + padding, set->strs.str_body, body_str_len + 1);
+		ft_memmove(set->strs.str_flaged + padding, set->strs.str_body, body_str_len + 1);
 	}
 	else if ((padding > body_str_len) && (set->flags.lefted == 1))
 		ft_memmove(set->strs.str_flaged, set->strs.str_body, body_str_len);
 	else
-		ft_strlcpy(set->strs.str_flaged, set->strs.str_body, body_str_len + 1);
+		ft_memmove(set->strs.str_flaged, set->strs.str_body, body_str_len + 1);
 	free(set->va_str);
 }
 
@@ -47,7 +47,10 @@ void	ft_body_setter_hex(t_set *set)
 		padding = set->lenths.precision - body_str_len;
 		ft_memmove(tmp_body + padding, set->strs.str_body, body_str_len + 1);
 	}
-	ft_memmove(set->strs.str_body, tmp_body, ft_strlen(tmp_body));
+	else
+		ft_memmove(set->strs.str_body, tmp_body, ft_strlen(tmp_body));
 	body_str_len = ft_strlen(tmp_body);
+	ft_memmove(set->strs.str_body, tmp_body, ft_strlen(tmp_body));
+	free(tmp_body);
 	ft_body_setter_hex_wid_setter(set, body_str_len);
 }

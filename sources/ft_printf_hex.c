@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 20:52:38 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 11:22:10 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 13:14:23 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void		ft_printf_hex(t_set *set, va_list l)
 	num_len = ft_strlen(set->strs.str_body);
 	set->lenths.total_len = \
 	(num_len > set->lenths.width) ? num_len : set->lenths.width;
+	set->lenths.total_len = \
+	(set->lenths.total_len > set->lenths.precision) ? \
+	set->lenths.total_len : set->lenths.precision;
 	if (!(set->strs.str_flaged = malloc(sizeof(char) * \
 		(set->lenths.total_len + 1))))
 		return ;
