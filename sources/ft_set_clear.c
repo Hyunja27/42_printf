@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 17:41:03 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 11:22:41 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 14:37:01 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_set_clear(t_set *set)
 	set->flags.plus_flag = 0;
 	set->flags.spaceflag = 0;
 	set->flags.zeroflag = 0;
+	set->flags.shap_flag = 0;
 	set->lenths.precision = 0;
 	set->lenths.total_len = 0;
 	set->lenths.width = 0;

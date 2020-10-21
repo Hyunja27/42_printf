@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 11:21:46 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 15:16:54 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,25 @@ static void	ft_body_setter_pres_minus(t_set *set)
 
 	padding = set->lenths.total_len;
 	set->va_str = ft_itoa_no_minus(set->num);
-	if ((set->lenths.precision > ft_int_len(set->num)))
-	{
-		if (!(set->strs.str_body = \
-		malloc(sizeof(char) * (set->lenths.precision + 2))))
-			return ;
-		set->strs.str_body = ft_memset_chr(set->strs.str_body, '0'\
-		, set->lenths.precision + 2);
-		set->strs.str_body[set->lenths.precision + 1] = 0;
-		set->strs.str_body[0] = '-';
-		padding = set->lenths.precision + 1 - ft_int_len(set->num);
-		ft_strlcpy(set->strs.str_body + padding, \
-		set->va_str, ft_int_len(set->num) + 1);
-	}
-	else if ((set->flags.zeroflag == 1) && \
+	// if ((set->lenths.precision > ft_int_len(set->num)))
+	// {
+	// 	if (!(set->strs.str_body = \
+	// 	malloc(sizeof(char) * (set->lenths.precision + 2))))
+	// 		return ;
+	// 	set->strs.str_body = ft_memset_chr(set->strs.str_body, '0'\
+	// 	, set->lenths.precision + 2);
+	// 	set->strs.str_body[set->lenths.precision + 1] = 0;
+	// 	set->strs.str_body[0] = '-';
+	// 	padding = set->lenths.precision + 1 - ft_int_len(set->num);
+	// 	ft_strlcpy(set->strs.str_body + padding, \
+	// 	set->va_str, ft_int_len(set->num) + 1);
+	// }
+	if ((set->flags.zeroflag == 1) && \
 	((set->lenths.width) > ft_int_len(set->num)))
 		ft_body_setter_wid_minus(set);
 	else
 		set->strs.str_body = ft_itoa(set->num);
+	printf("\n<%s>\n",set->strs.str_body );
 }
 
 static void	plus_adder(t_set *set)
@@ -82,8 +83,8 @@ void	ft_body_setter_int(t_set *set)
 
 	padding = set->lenths.total_len;
 	set->va_str = ft_ltoa(set->num);
-	if ((set->precision_yn == 1) && \
-	(set->lenths.precision > ft_int_len(set->num)) && (set->num > 0))
+	if ((set->num >= 0) && (set->precision_yn == 1) && \
+	(set->lenths.precision > ft_int_len(set->num)))
 	{
 		if (!(set->strs.str_body = \
 		malloc(sizeof(char) * (set->lenths.precision + 1))))
@@ -93,7 +94,7 @@ void	ft_body_setter_int(t_set *set)
 		set->strs.str_body[set->lenths.precision] = 0;
 		padding = set->lenths.precision - ft_int_len(set->num);
 		ft_memmove(set->strs.str_body + padding, set->va_str, \
-		ft_int_len(set->num) + 1);
+		ft_int_len(set->num));
 	}
 	else if ((set->num < 0))
 		ft_body_setter_pres_minus(set);

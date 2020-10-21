@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:33:17 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 11:22:01 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 14:37:33 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ void	ft_pharse_str(t_set *set)
 		set->flags.zeroflag = 1;
 	else if (*set->strs.str_to_pharse == ' ')
 		set->flags.spaceflag = 1;
+	else if (*set->strs.str_to_pharse == '#')
+		set->flags.shap_flag = 1;
 	ft_wid_pre_seperater(set);
 }

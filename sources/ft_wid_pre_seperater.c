@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:33:39 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 12:11:21 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 14:38:23 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	ft_wid_pre_seperater(t_set *set)
 		else if ((*set->strs.str_to_pharse == '+' || \
 				*set->strs.str_to_pharse == ' ' || \
 				*set->strs.str_to_pharse == '-' || \
-				*set->strs.str_to_pharse == '.'))
+				*set->strs.str_to_pharse == '.' || \
+				*set->strs.str_to_pharse == '#'))
 			set->strs.str_to_pharse++;
 		else
 			ft_width_detecter(set);
