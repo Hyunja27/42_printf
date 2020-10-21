@@ -6,7 +6,7 @@
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 00:31:47 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 00:49:56 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/21 09:17:46 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void		ft_printf_ptr(t_set *set, va_list l)
 {
 	int				i;
-	
+
 	i = 0;
 	set->val = va_arg(l, void*);
-	set->strs.str_body = ft_print_memory(set->val, 0);
+	set->strs.str_body = ft_print_memory(set->val, 16);
 	
 	// set->strs.str_body = ft_convert_base(set->va_str, "0123456789", \
 	// "0123456789abcdef");

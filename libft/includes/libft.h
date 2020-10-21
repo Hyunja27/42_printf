@@ -6,7 +6,7 @@
 /*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:32:23 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 00:47:06 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/21 10:16:14 by hyunja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct	s_list
 {
@@ -69,6 +70,7 @@ char			*ft_ltoa(long long n);
 int				is_space(char c);
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
 char			*ft_print_memory(void *addr, unsigned int size);
+char			*ft_strcat_chr(char const *s1, char c);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
