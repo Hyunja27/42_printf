@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 11:16:03 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/21 11:44:20 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ int	main(void)
 	//num1 = 2147483648;
 	//num2 = 2147489999;
 	chr = 'A';
-	
 	printf(" = test value is '%s' =\n\n          = va is '%%' =\n\n", str);
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	printf("< Real printf >\n\n");
-	rt_byte = printf("%s %s", str1, ft_strcat_chr(str1, '!'));
+	rt_byte = printf(str, str1, chr, 20000);;
 	printf("\n\n\n>real printf's return byte : %d\n", rt_byte);
 	printf("\n\n");
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");

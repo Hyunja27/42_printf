@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 00:42:36 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 10:51:00 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/21 11:45:21 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char *g_hexline;
 char *g_body;
 
-void	hexarize(long long nbr)
+static void	hexarize(long long nbr)
 {
 	if (nbr > 15)
 	{
@@ -23,13 +23,10 @@ void	hexarize(long long nbr)
 		hexarize(nbr % 16);
 	}
 	else
-	{
-		write(1, &g_hexline[nbr % 16], 1);
 		g_body = ft_strcat_chr(g_body, g_hexline[nbr % 16]);
-	}
 }
 
-void	hex_addr_print(long long addr, int count)
+static void	hex_addr_print(long long addr, int count)
 {
 	long long tmp;
 
