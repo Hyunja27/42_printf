@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 11:44:20 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 11:49:14 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 {
 	//"%010s%c%-0+5dhello\n";
 	//"%.15u%%%.*d ALL\n"
-	char			str[10000] = "%10p\n";
+	char			str[10000] = "%30p\n";
 	//char			*str1;
 	//unsigned int	num1;
 	//long long 	num2;
