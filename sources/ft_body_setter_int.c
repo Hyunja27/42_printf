@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 15:16:54 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 18:52:12 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static void	ft_body_setter_pres_minus(t_set *set)
 		ft_body_setter_wid_minus(set);
 	else
 		set->strs.str_body = ft_itoa(set->num);
-	printf("\n<%s>\n",set->strs.str_body );
 }
 
 static void	plus_adder(t_set *set)

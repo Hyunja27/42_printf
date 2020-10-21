@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 15:45:25 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 13:47:28 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/21 19:00:14 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,4 @@ void	ft_flag_setter(t_set *set)
 		set->strs.str_flaged = ft_memset_chr(set->strs.str_flaged, '0', \
 		set->lenths.total_len + 1);
 	set->strs.str_flaged[set->lenths.total_len] = 0;
-	
-	// int i = 0;
-	// while(set->strs.str_flaged[i])
-	// {
-	// 	printf("[]");
-	// 	i++;
-	// }
 }
