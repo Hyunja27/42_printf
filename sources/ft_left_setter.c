@@ -6,11 +6,19 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 11:21:58 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 15:52:56 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+// static	void	ft_select_printer(t_set *set, int padding)
+// {
+// 	ft_memmove(set->strs.str_flaged + padding, set->strs.str_body, \
+// 	ft_strlen(set->strs.str_body) + 1);
+// 	set->rt_byte += write(1, set->strs.str_flaged, \
+// 	ft_strlen(set->strs.str_flaged));
+// }
 
 void	ft_left_setter(t_set *set)
 {

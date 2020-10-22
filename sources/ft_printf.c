@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 18:54:37 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 15:17:34 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,8 @@ int		ft_printf(const char *str, ...)
 			ft_printf_with_set(&set, l);
 		}
 		set.strs.str_to_pharse++;
-		ft_set_clear(&set);
-	}
-	va_end(l);
 
-	// printf("\n\n>precision yn: %d\n", set.precision_yn);
+	// 		printf("\n\n>precision yn: %d\n", set.precision_yn);
 	// printf(">zero flags : %d\n", set.flags.zeroflag);
 	// printf(">space flags : %d\n", set.flags.spaceflag);
 	// printf(">shap flags : %d\n", set.flags.shap_flag);
@@ -53,6 +50,11 @@ int		ft_printf(const char *str, ...)
 	// printf(">return byte : %d\n", set.rt_byte);
 	// printf(">int that print is : %s\n", set.va_str);
 	// printf(">body str is : %s\n", set.strs.str_body);
+
+		
+		ft_set_clear(&set);
+	}
+	va_end(l);
 	
 	return (set.rt_byte);
 }

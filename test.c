@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 15:07:44 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 15:16:06 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ int	main(void)
 	//num2 = 2147489999;
 	//chr = 'A';
 
-	// printf("\n\n<body : %s>\n\n",set->strs.str_body);
 	// printf("\n\n<tmp_body : %s>\n\n",tmp_body);
+	// printf("\n\n<body : %s>\n\n",set->strs.str_body);
 	// printf("\n\n<flaged :%s>\n\n",set->strs.str_flaged);
 	
 	int				rt_byte;
 	int				a;
-	const char		*str = "%08.3d";
+	const char		*str = "%07d";
 
 	printf(" = test value is '%s' =\n\n          = va is '%%n' =\n\n", str);
 	
 	
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	
-	a = -8473;
+	a = -54;
 	printf("< Real printf >\n\n");
 	rt_byte = printf(str, a);
 	printf("\n\n\n>real printf's return byte : %d\n", rt_byte);
@@ -54,8 +54,6 @@ int	main(void)
 
 	
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
-
-
 
 	return (0);
 }
