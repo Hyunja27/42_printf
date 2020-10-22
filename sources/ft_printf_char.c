@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:32:33 by spark             #+#    #+#             */
-/*   Updated: 2020/10/22 21:23:14 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 22:44:29 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_printf_char(t_set *set, va_list l)
 {
-	set->chr = va_arg(l, int);
+	set->chr = (unsigned char)va_arg(l, int);
 	if (!(set->strs.str_body = malloc(sizeof(char) * 2)))
 		return ;
 	set->strs.str_body[0] = set->chr;

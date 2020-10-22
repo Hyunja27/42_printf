@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:02:40 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 14:36:33 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 22:35:49 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ typedef struct	s_lenth
 
 typedef struct	s_set
 {
-	void		*val;
-	char		type;
-	long long	num;
-	char		chr;
-	char		*va_str;
-	int			precision_yn;
-	int			rt_byte;
-	va_list		*list;
-	t_str_set	strs;
-	t_flag_set	flags;
-	t_lenth_set lenths;
+	void			*val;
+	char			type;
+	long long		num;
+	unsigned char	chr;
+	char			*va_str;
+	int				precision_yn;
+	int				rt_byte;
+	va_list			*list;
+	t_str_set		strs;
+	t_flag_set		flags;
+	t_lenth_set 	lenths;
 }				t_set;
 
 int		ft_printf(const char *str, ...);

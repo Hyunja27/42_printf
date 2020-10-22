@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:08:28 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/22 21:34:55 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 23:00:43 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_printf(const char *str, ...)
 			ft_printf_with_set(&set, l);
 		}
 		set.strs.str_to_pharse++;
-		//ft_set_clear(&set);
+		ft_set_clear(&set);
 	}
 	va_end(l);
 

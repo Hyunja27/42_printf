@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/22 21:39:10 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 23:01:01 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	//"%010s%c%-0+5dhello\n";
 	//"%.15u%%%.*d ALL\n"
 	
-	char			*str1 = "garvin";
+	char			*str1 = "%hello";
 	//unsigned int	num1;
 	//long long 	num2;
 	//char			chr;
@@ -32,7 +32,7 @@ int	main(void)
 	
 	int				rt_byte;
 	int				a;
-	const char		*str = "%s";
+	const char		*str = "%.3s";
 
 	printf(" = test value is '%s' =\n\n          = va is '%%n' =\n\n", str);
 	

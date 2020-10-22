@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:33:45 by spark             #+#    #+#             */
-/*   Updated: 2020/10/22 21:40:32 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 22:57:56 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ void		ft_printf_str(t_set *set, va_list l)
 		(set->lenths.total_len + 1))))
 		return ;
 	ft_flag_setter(set);
-
-	printf("\n\n<body : %s>\n\n",set->strs.str_body);
-	printf("\n\n<flaged :%s>\n\n",set->strs.str_flaged);
-	
 	ft_body_setter_str(set);
 	
 	//int i = 0;
