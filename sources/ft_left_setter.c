@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
-/*   Updated: 2020/10/22 15:52:56 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 18:26:52 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	ft_left_setter(t_set *set)
 		ft_memmove(tmp_flaged, tmp_body, ft_strlen(tmp_body));
 		set->rt_byte += write(1, tmp_flaged, ft_strlen(tmp_flaged));
 	}
+	else if ((set->rt_byte == 0) && (set->num == 0) && (set->precision_yn == 1)\
+	&& (set->lenths.precision == 0))
+		set->rt_byte += write(1, tmp_flaged, ft_strlen(tmp_flaged));
 	else
 	{
 		ft_memmove(tmp_flaged, tmp_body, ft_strlen(tmp_body));
