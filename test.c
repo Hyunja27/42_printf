@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/10/22 15:16:06 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 21:39:10 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	//"%010s%c%-0+5dhello\n";
 	//"%.15u%%%.*d ALL\n"
 	
-	//char			*str1;
+	char			*str1 = "garvin";
 	//unsigned int	num1;
 	//long long 	num2;
 	//char			chr;
@@ -32,16 +32,16 @@ int	main(void)
 	
 	int				rt_byte;
 	int				a;
-	const char		*str = "%07d";
+	const char		*str = "%s";
 
 	printf(" = test value is '%s' =\n\n          = va is '%%n' =\n\n", str);
 	
 	
 	printf("= = = = = = = = = = = = = = = = = = = = = = = = = =\n");
 	
-	a = -54;
+	a = 0;
 	printf("< Real printf >\n\n");
-	rt_byte = printf(str, a);
+	rt_byte = printf(str, str1);
 	printf("\n\n\n>real printf's return byte : %d\n", rt_byte);
 	printf("\n\n");
 
@@ -49,7 +49,7 @@ int	main(void)
 
 	
 	printf("< My ft_printf >\n\n");
-	ft_printf(str, a);
+	ft_printf(str, str1);
 	printf("\n\n");
 
 	

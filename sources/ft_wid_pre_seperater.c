@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:33:39 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 14:38:23 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/22 19:30:32 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ void	ft_wid_pre_seperater(t_set *set)
 				*set->strs.str_to_pharse == '.' || \
 				*set->strs.str_to_pharse == '#'))
 			set->strs.str_to_pharse++;
-		else
+		else if (set->lenths.width == 0)
 			ft_width_detecter(set);
+		else
+			set->strs.str_to_pharse++;
 	}
 	set->type = *set->strs.str_to_pharse;
 }
