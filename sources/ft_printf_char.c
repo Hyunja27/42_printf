@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:32:33 by spark             #+#    #+#             */
-/*   Updated: 2020/10/22 22:44:29 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/23 16:42:11 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,8 @@ void		ft_printf_char(t_set *set, va_list l)
 		(set->lenths.total_len + 1))))
 		return ;
 	ft_flag_setter(set);
-	ft_body_setter_str(set);
+	ft_body_setter_chr(set);
 	
-	//int i = 0;
-	//while(set->strs.str_flaged[i])
-		//printf("[%c]",set->strs.str_flaged[i++]);
 	while (*set->strs.str_flaged)
-		set->rt_byte += write(1, (unsigned char*)set->strs.str_flaged++, 1);
+		set->rt_byte += write(1, set->strs.str_flaged++, 1);
 }

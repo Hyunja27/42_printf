@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 17:41:03 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 14:37:01 by spark            ###   ########.fr       */
+/*   Updated: 2020/10/23 15:10:36 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_set_clear(t_set *set)
 	set->strs.str_body = 0;
 	set->strs.str_flaged = 0;
 	set->strs.str_to_print = 0;
-	set->flags.lefted = 0;
 	set->flags.plus_flag = 0;
 	set->flags.spaceflag = 0;
 	set->flags.zeroflag = 0;

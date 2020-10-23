@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:32:23 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/21 11:19:26 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/09 21:27:48 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct	s_list
 {
@@ -59,18 +58,6 @@ int				ft_tolower(int n);
 char			**ft_split(char const *str, char c);
 void			ft_putnbr_fd(int n, int fd);
 char			*ft_strtrim(char const *s1, char const *set);
-
-//add on..
-char			*ft_strndup(const char *str, size_t n);
-char			*ft_strchrs(const char *str, char *to_find);
-void			*ft_memset_chr(char *p, char c, int n);
-long long		ft_int_len(long long n);
-char			*ft_itoa_no_minus(int n);
-char			*ft_ltoa(long long n);
-int				is_space(char c);
-char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
-char			*ft_print_memory(void *addr, unsigned int size);
-char			*ft_strcat_chr(char *s1, char c);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);

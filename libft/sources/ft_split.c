@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunja <hyunja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 23:24:19 by spark             #+#    #+#             */
-/*   Updated: 2020/10/21 09:40:35 by hyunja           ###   ########.fr       */
+/*   Updated: 2020/10/09 22:03:37 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strndup(const char *str, size_t n)
+static	char	*ft_strndup(const char *str, size_t n)
 {
 	size_t	len;
 	char	*rt;
