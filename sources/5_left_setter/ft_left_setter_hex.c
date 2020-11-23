@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
-/*   Updated: 2020/11/20 21:09:26 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/23 19:38:47 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void	ft_shap_adder_f(t_set *set)
 
 static void	ft_left_setter_hex_2(t_set *set)
 {
-	if ((set->num != 0) && (set->flags.zeroflag == 1) && (set->flags.add == 0))
+	if ((set->num_ull != 0) && (set->flags.zeroflag == 1) \
+	&& (set->flags.add == 0))
 		ft_shap_adder_f(set);
 	if (set->type == 'X')
 	{
@@ -44,11 +45,11 @@ void		ft_left_setter_hex(t_set *set)
 {
 	int		padding;
 
-	if ((set->num != 0) && (set->flags.zeroflag == 1) \
+	if ((set->num_ull != 0) && (set->flags.zeroflag == 1) \
 	&& ((set->flags.lefted == 1)))
 		ft_shap_adder_f(set);
 	if ((set->precision_yn == 1) && (set->lenths.precision == 0)\
-	&& (set->num == 0))
+	&& (set->num_ull == 0))
 		;
 	else if ((set->flags.lefted == 0) && (ft_strlen(set->strs.str_flaged) \
 	> ft_strlen(set->strs.str_body)))

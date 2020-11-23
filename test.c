@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 04:20:30 by spark             #+#    #+#             */
-/*   Updated: 2020/11/23 17:00:37 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/23 19:26:09 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main(void)
 	
 	printf("< Real printf >\n\n");
 	//rt_byte = printf("%-*.*s/", -7, -3, "yolo");
-	rt_byte = printf("%#37llX", 522337203685470ull);
+	rt_byte = printf("%#05X", 43);
 	printf("\n\n\n>real printf's return byte : %d\n", rt_byte);
 	printf("\n\n");
 
@@ -95,7 +95,7 @@ int	main(void)
 	printf("< My ft_printf >\n\n");
 	//rt_byte = ft_printf("%-*.*s/", -7, -3, "yolo");
 	//rt_byte = ft_printf(str, -2, -2, 0, -2, -2, 0, -2, -2, 0);
-	rt_byte = ft_printf("%#37llX", 522337203685470ull);
+	rt_byte = ft_printf("%#05X", 43);
 
 	
 

@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/11/23 17:07:22 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/23 19:36:35 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,13 @@ void			ft_body_setter_hex(t_set *set)
 	if ((set->num >= 0) && (set->precision_yn == 1) && \
 	(set->lenths.precision > body_str_len))
 		ft_body_setter_hex_2(set);
-	else if ((set->num != 0) && (set->flags.zeroflag == 0 ||\
-		((int)ft_strlen(tmp_body) >= \
-		set->lenths.total_len) || set->precision_yn == 1))
-		ft_shap_adder(set);
-
-		
-	else if (set->flags.shap_flag == 1)
-		ft_shap_adder(set);
-
-
+	if (((set->flags.shap_flag == 1) && (set->num_ull != 0)))
+	{
+		if (((set->flags.zeroflag == 1) && ((int)ft_strlen(tmp_body)\
+		+ 2 < set->lenths.total_len) && (set->precision_yn == 0)))
+			padding++;
+		else
+			ft_shap_adder(set);
+	}
 	free(set->va_str);
 }
