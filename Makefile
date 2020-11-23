@@ -7,56 +7,14 @@ LIBFT_INC_DIR = $(LIBFT_DIR)/includes
 
 INC_DIR = ./includes
 
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm
 RMFLAGS = -f
 AR = ar crs
-
-OBJS_FILES = ft_printf \
-			ft_width_detecter \
-			ft_pharse_str \
-			ft_precision_detecter \
-			ft_wid_pre_seperater \
-			ft_set_clear \
-			ft_printf_with_set \
-			ft_printf_int \
-			ft_printf_str \
-			ft_printf_char \
-			ft_printf_ptr \
-			ft_printf_per \
-			ft_printf_hex \
-			ft_printf_oct \
-			ft_printf_uni \
-			ft_printf_double \
-			ft_printf_double_g \
-			ft_printf_double_e \
-			ft_flag_setter \
-			ft_flag_setter_double \
-			ft_body_setter_int \
-			ft_body_setter_str \
-			ft_body_setter_hex \
-			ft_body_setter_ptr \
-			ft_body_setter_double \
-			ft_left_setter \
-			ft_left_setter_hex \
-			ft_left_setter_plus \
-			ft_dtoa \
-			ft_dtoa_e \
-			ft_dtoa_e_big \
-			ft_zero_maker \
-			ft_array_round \
-			ft_manti_to_a_e \
-			ft_manti_to_a \
-			ft_e_manti_array \
-			ft_expond_adder \
-			ft_bigint \
-			ft_space_adder \
-			ft_minus_adder \
-			ft_ilencal
-
-OBJS = $(addprefix ./, $(addsuffix .o, $(OBJS_FILES)))
-
+# OBJS = $(addsuffix .o, $(SRC_FILES))
+OBJS = ./*.o
 SRC_FILES = ft_printf \
 			0_phaser/ft_width_detecter \
 			0_phaser/ft_pharse_str \
@@ -98,7 +56,6 @@ SRC_FILES = ft_printf \
 			6_util/ft_space_adder \
 			6_util/ft_minus_adder \
 			6_util/ft_ilencal
-
 SRCS = $(addprefix ./sources/, $(addsuffix .c, $(SRC_FILES)))
 
 GREEN = \033[32m
@@ -121,10 +78,11 @@ $(NAME) : $(OBJS)
 	@(cp $(LIBFT_DIR)/$(LIBFT) .)
 	@(mv $(LIBFT) $(NAME))
 	@($(AR) $(NAME) $(OBJS))
+	@make clean
 	@echo "${MINT}making Done."
 
 $(OBJS) : 
-	@$(CC) $(CFLAGS) -I $(LIBFT_INC_DIR) -I $(INC_DIR) -c $(SRCS)
+	@$(CC) $(CFLAGS) -g -I $(LIBFT_INC_DIR) -I $(INC_DIR) -c $(SRCS)
 
 clean :
 	@echo "${PURPLE}[${RED} cleaning ${PURPLE} : erase objects file.]"
@@ -133,7 +91,6 @@ clean :
 	@echo "${PURPLE}->clearing dead bodys..."
 	@($(RM) $(RMFLAGS) $(OBJS))
 	@echo "${MINT}cleaning Done."
-
 fclean : clean
 	@echo "${PURPLE}[${RED} fcleaning ${PURPLE} : erase objects & lib.a file.]"
 	@echo "${PURPLE}->kill all lib.a files... bye bye!"
@@ -143,4 +100,16 @@ fclean : clean
 
 re : fclean all
 
-bonus : $(NAME)
+test : $(NAME)
+	@make re
+	@($(CC) -g $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) test.c  $(SRCS)  -I $(INC_DIR) -I $(LIBFT_INC_DIR))
+	@echo "${GREEN}${BOLD}${BLINK}\n<프린트f 테스트>\n"
+	@./a.out
+	# @rm a.out
+	@rm -rf a.out.dSYM
+	@make fclean
+
+debug_test : $(NAME)
+	$(CC) -g $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) test.c -o test.out $(SRCS)  -I $(INC_DIR) -I $(LIBFT_INC_DIR)
+
+.PHONY: clean fclean

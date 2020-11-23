@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/11/22 18:57:26 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/23 16:55:28 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,8 @@ void			ft_body_setter_int(t_set *set)
 		ft_free_va(1, set->va_str);
 	}
 	else if ((set->num >= 0) && (set->precision_yn == 1) && \
-	(set->lenths.precision >= ft_int_len(set->num)))
+	(set->lenths.precision >= ((set->flags.ull_on == 1) ? \
+	ulllencal(set->num_ull) : ft_ilencal(set->num))))
 		ft_body_setter_int_2(set);
 	else if (set->num < 0)
 		ft_body_setter_pres_minus(set);

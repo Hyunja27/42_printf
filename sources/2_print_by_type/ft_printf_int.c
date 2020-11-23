@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 17:15:56 by spark             #+#    #+#             */
-/*   Updated: 2020/11/23 16:11:52 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/23 16:52:39 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			ft_printf_int(t_set *set, va_list l)
 	if (set->flags.ull_on == 0)
 		num_len = ft_int_len(set->num);
 	else
-		num_len = ft_int_len(set->num_ull);
+		num_len = ulllencal(set->num_ull);
 	set->lenths.total_len = \
 	(num_len >= set->lenths.width) ? num_len : set->lenths.width;
 	set->lenths.total_len = \
