@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 20:52:38 by hyunja            #+#    #+#             */
-/*   Updated: 2020/11/23 16:14:48 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/23 20:21:59 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		ex_va_arg_setter_u(t_set *set, va_list l)
 
 static void		ft_printf_hex_print(t_set *set)
 {
-	if ((set->num == 0) && (set->precision_yn == 1) && \
+	if ((set->num_ull == 0) && (set->precision_yn == 1) && \
 	(set->lenths.precision == 0) && (set->lenths.width == 0))
 		return ;
 	else

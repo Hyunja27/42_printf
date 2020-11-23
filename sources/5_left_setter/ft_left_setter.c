@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
-/*   Updated: 2020/11/22 19:06:42 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/23 20:19:31 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,20 @@ static void		ft_left_setter_3(t_set *set)
 
 static void		ft_left_setter_2(t_set *set)
 {
-	int		padding;
-	char	*tmp_flaged;
-	char	*tmp_body;
+	int					padding;
+	char				*tmp_flaged;
+	char				*tmp_body;
+	int					tmp;
 
-	tmp_flaged = set->strs.str_flaged;
+	tmp = (set->flags.ull_on == 1) ? (int)set->num_ull : set->num;
 	tmp_body = set->strs.str_body;
+	tmp_flaged = set->strs.str_flaged;
 	padding = 0;
-	if ((set->rt_byte == 0) && (set->num == 0) && (set->precision_yn == 1)\
+	if ((set->rt_byte == 0) && (tmp == 0) && (set->precision_yn == 1)\
 	&& (set->lenths.precision == 0))
 		set->rt_byte += write(1, tmp_flaged, ft_strlen(tmp_flaged));
 	else if ((set->precision_yn == 1) && (set->lenths.width != 0) && \
-	((set->num) == 0) && (ft_strlen(tmp_body) == 1) && (set->flags.lefted == 0))
+	((tmp) == 0) && (ft_strlen(tmp_body) == 1) && (set->flags.lefted == 0))
 	{
 		padding = ft_strlen(tmp_flaged) - ft_strlen(tmp_body);
 		ft_memmove(tmp_flaged + padding, tmp_body, ft_strlen(tmp_body));
