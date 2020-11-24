@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
-/*   Updated: 2020/11/23 20:19:31 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/24 18:02:10 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ static void		ft_left_setter_2(t_set *set)
 	int					padding;
 	char				*tmp_flaged;
 	char				*tmp_body;
-	int					tmp;
+	long long			tmp;
 
-	tmp = (set->flags.ull_on == 1) ? (int)set->num_ull : set->num;
+	tmp = (set->flags.ull_on == 1) ? 2147483646 : set->num;
 	tmp_body = set->strs.str_body;
 	tmp_flaged = set->strs.str_flaged;
 	padding = 0;

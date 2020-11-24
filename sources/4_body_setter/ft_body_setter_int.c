@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 18:59:02 by spark             #+#    #+#             */
-/*   Updated: 2020/11/23 16:55:28 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/24 18:03:46 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ static void		plus_adder(t_set *set)
 
 static void		ft_body_setter_int_2(t_set *set)
 {
-	int		padding;
-	int		tmp;
+	int				padding;
+	long long		tmp;
 
 	tmp = (set->flags.ull_on == 1) ? ulllencal(set->num_ull) : \
 	ft_ilencal(set->num);
@@ -114,13 +114,13 @@ static void		ft_body_setter_int_2(t_set *set)
 
 void			ft_body_setter_int(t_set *set)
 {
-	int		padding;
+	int				padding;
+	long long		tmp;
 
+	tmp = (set->flags.ull_on == 1) ? 2147483646 : set->num;
 	padding = set->lenths.total_len;
-	if (set->flags.ull_on == 0)
-		set->va_str = ft_ltoa(set->num);
-	else
-		set->va_str = ft_ultoa(set->num_ull);
+	set->va_str = (set->flags.ull_on == 0) ? \
+	ft_ltoa(set->num) : ft_ultoa(set->num_ull);
 	if (set->flags.just_bd == 1)
 	{
 		ft_memmove(set->strs.str_flaged, set->va_str, ft_strlen(set->va_str));
@@ -128,11 +128,11 @@ void			ft_body_setter_int(t_set *set)
 			set->strs.str_flaged[ft_strlen(set->va_str)] = 0;
 		ft_free_va(1, set->va_str);
 	}
-	else if ((set->num >= 0) && (set->precision_yn == 1) && \
+	else if ((tmp >= 0) && (set->precision_yn == 1) && \
 	(set->lenths.precision >= ((set->flags.ull_on == 1) ? \
 	ulllencal(set->num_ull) : ft_ilencal(set->num))))
 		ft_body_setter_int_2(set);
-	else if (set->num < 0)
+	else if (tmp < 0)
 		ft_body_setter_pres_minus(set);
 	else
 		set->strs.str_body = set->va_str;
