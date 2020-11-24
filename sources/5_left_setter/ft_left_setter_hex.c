@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 17:35:52 by spark             #+#    #+#             */
-/*   Updated: 2020/11/23 19:38:47 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/25 00:02:37 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	ft_shap_adder_f(t_set *set)
 
 static void	ft_left_setter_hex_2(t_set *set)
 {
+	set->strs.str_body = set->strs.str_flaged;
 	if ((set->num_ull != 0) && (set->flags.zeroflag == 1) \
 	&& (set->flags.add == 0))
 		ft_shap_adder_f(set);
@@ -45,9 +46,6 @@ void		ft_left_setter_hex(t_set *set)
 {
 	int		padding;
 
-	if ((set->num_ull != 0) && (set->flags.zeroflag == 1) \
-	&& ((set->flags.lefted == 1)))
-		ft_shap_adder_f(set);
 	if ((set->precision_yn == 1) && (set->lenths.precision == 0)\
 	&& (set->num_ull == 0))
 		;
@@ -62,10 +60,13 @@ void		ft_left_setter_hex(t_set *set)
 	else if (ft_strlen(set->strs.str_body) >= ft_strlen(set->strs.str_flaged))
 		ft_memmove(set->strs.str_flaged, set->strs.str_body, \
 		ft_strlen(set->strs.str_body) + 1);
+	else if ((set->num_ull != 0) && (set->flags.zeroflag == 1) \
+	&& ((set->flags.lefted == 1)) && (set->flags.shap_flag == 1))
+		ft_memmove(set->strs.str_flaged + 2, set->strs.str_body, \
+		ft_strlen(set->strs.str_body));
 	else
 		ft_memmove(set->strs.str_flaged, set->strs.str_body, \
 		ft_strlen(set->strs.str_body));
 	free(set->strs.str_body);
-	set->strs.str_body = set->strs.str_flaged;
 	ft_left_setter_hex_2(set);
 }
