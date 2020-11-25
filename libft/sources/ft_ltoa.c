@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 10:22:41 by hyunja            #+#    #+#             */
-/*   Updated: 2020/10/26 16:06:47 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/25 16:02:35 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static long long	ilencal(long long n)
 
 char				*ft_ltoa(long long n)
 {
-	int				len;
-	char			*rt;
-	long long		tmp;
+	int						len;
+	char					*rt;
+	unsigned long long		tmp;
 
 	len = ilencal(n / 10) + 1;
 	if (n < 0)

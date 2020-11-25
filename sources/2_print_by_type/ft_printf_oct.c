@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 20:52:38 by hyunja            #+#    #+#             */
-/*   Updated: 2020/11/22 18:03:37 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/25 16:58:04 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void			ft_printf_oct(t_set *set, va_list l)
 	long long		num_len;
 
 	set->num_ull = va_arg(l, unsigned long long);
-	set->va_str = ft_ltoa(set->num_ull);
+	set->va_str = ft_ultoa(set->num_ull);
 	set->strs.str_body = ft_convert_base(set->va_str, "0123456789", \
 	"01234567");
 	num_len = (long long)ft_strlen(set->strs.str_body);

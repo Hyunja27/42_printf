@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 14:47:57 by spark             #+#    #+#             */
-/*   Updated: 2020/11/15 18:03:49 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/25 17:01:29 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,7 @@ static	void		ft_printf_with_set_2(t_set *set, va_list l)
 	int *int_ptr;
 
 	if (set->type == 'o')
-	{
-		if (!ex_checker(set))
-			ft_printf_oct(set, l);
-		else if (ex_checker(set))
-			ft_printf_int(set, l);
-	}
+		ft_printf_oct(set, l);
 	else if (etc_checker(set))
 		ft_printf_int(set, l);
 	else if (set->type == 'n')
